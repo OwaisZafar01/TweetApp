@@ -5,14 +5,15 @@ Whether you're here to explore tweets, share your thoughts, or manage your posts
 
 
 <h2>🌟 Key Features</h2>
-
-
+<ul>
 ✅ Guest Mode – Browse tweets without an account 
 ✅ User Authentication – Secure Signup, Login, and Logout 
 ✅ Personalized Feed – View your own tweets along with other's posts 
 ✅ Tweet Management – Create, Edit, and Delete tweets anytime 
 ✅ Multiple Tweets – Post as many tweets as you like, each linked to you 
 ✅ Interactive Experience – Engage with tweets and explore user-generated content
+</ul>
+
 
 <h2>🛠 Tech Stack</h2>
 
