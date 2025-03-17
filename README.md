@@ -6,28 +6,19 @@ Whether you're here to explore tweets, share your thoughts, or manage your posts
 
 <h2>🌟 Key Features</h2>
 
-<ul>
 
-  <li>  ✅ Guest Mode – Browse tweets without an account </li>
-  <li>  ✅ User Authentication – Secure Signup, Login, and Logout  </li>
-  <li>  ✅ Personalized Feed – View your own tweets along with other's posts  </li>
-  <li>  ✅ Tweet Management – Create, Edit, and Delete tweets anytime   </li>
-  <li> ✅ Multiple Tweets – Post as many tweets as you like, each linked to you </li>
-  <li>   ✅ Interactive Experience – Engage with tweets and explore user-generated content </li>
-
-</ul>
-
-
+✅ Guest Mode – Browse tweets without an account 
+✅ User Authentication – Secure Signup, Login, and Logout 
+✅ Personalized Feed – View your own tweets along with other's posts 
+✅ Tweet Management – Create, Edit, and Delete tweets anytime 
+✅ Multiple Tweets – Post as many tweets as you like, each linked to you 
+✅ Interactive Experience – Engage with tweets and explore user-generated content
 
 <h2>🛠 Tech Stack</h2>
 
-<ul>
-
-<li>🔹 Backend: Django (Python)</li>
-<li>🔹 Database: SQLite</li>
-<li>🔹 Frontend: HTML, CSS, Bootstrap</li>
-
-</ul>
+🔹 Backend: Django (Python)
+🔹 Database: SQLite
+🔹 Frontend: HTML, CSS, Bootstrap
 
 <h2>🚀 Get Started</h2>
 
