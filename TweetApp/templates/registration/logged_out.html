@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block title %}Logged Out{% endblock %}
+
+{% block content %}
+
+<div class="container d-flex flex-column align-items-center mt-5">
+    <div class="card shadow-lg p-4 text-center">
+        <h2 class="text-primary fw-bold">Logged Out</h2>
+        <p class="text-dark fw-semibold">
+            You have been successfully logged out.
+        </p>
+        <a href="{% url 'login' %}" class="btn btn-primary fw-bold w-100 mt-2">
+            🔑 Login Again
+        </a>
+    </div>
+</div>
+
+<style>
+
+    .card {
+        width: 100%;
+        max-width: 30rem;
+        border-radius: 12px;
+        background-color: #e3f2fd;
+        border: 2px solid #0d6efd;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        white-space: normal; /* Allow text to wrap */
+    }
+
+    p {
+        font-size: 1rem;
+        font-weight: 500;
+        white-space: normal; /* Allow text to wrap */
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 0.75rem;
+    }
+
+    .btn:hover {
+        background-color: #0b5ed7;
+        transform: scale(1.05);
+        transition: 0.3s ease-in-out;
+    }
+
+    
+    @media (max-width: 576px) {
+        .card {
+            width: 90%;
+            padding: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem; /* Adjust font size for small screens */
+        }
+
+        p {
+            font-size: 0.85rem; /* Adjust font size for small screens */
+        }
+
+        .btn {
+            font-size: 0.9rem;
+            padding: 0.6rem;
+        }
+    }
+
+    
+    @media (max-width: 375px) {
+
+        h2 {
+            font-size: 1.4rem; 
+            
+        }
+
+        p {
+            font-size: 0.99rem; 
+        }
+
+        .btn {
+            font-size: 0.85rem;
+            padding: 0.5rem;
+        }
+    }
+
+
+</style>
+
+{% endblock %}
