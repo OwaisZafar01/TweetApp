@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Tweet App{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <style>
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(33, 37, 41, 0.9); /* Dark theme with transparency */
+            backdrop-filter: blur(10px); /* Glass effect */
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            transition: 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #0d6efd; /* Bootstrap primary color */
+        }
+
+        /* Button Styling */
+        .btn-modern {
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0056b3, #003f80);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #dc3545, #b02a37);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #b02a37, #921624);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 8px 0;
+            }
+            .btn-modern {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark shadow">
+        <div class="container">
+
+          <a class="navbar-brand" href="{% url 'tweet_list' %}">
+             <span class="text-primary">Tweet</span> Bar
+          </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+
+                {% if user.is_authenticated %}
+                
+                    <form action="{% url 'logout' %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-modern ms-2">Logout</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'register' %}" class="btn btn-primary btn-modern ms-2">Sign Up</a>
+                    <a href="{% url 'login' %}" class="btn btn-primary btn-modern ms-2">Login</a>
+                {% endif %}
+
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <div class="container mt-4">
+        {% block content %} {% endblock %}
+    </div>
+
+    <!-- Bootstrap Bundle (JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
