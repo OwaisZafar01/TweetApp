@@ -7,7 +7,7 @@ Whether you're here to explore tweets, share your thoughts, or manage your posts
 
 <h2>🌟 Key Features</h2>
 
-✅ Guest Mode – Browse tweets without an account <br>  
+✅ <h3> Guest Mode </h3> – Browse tweets without an account <br>  
 ✅ User Authentication – Secure Signup, Login, and Logout <br>  
 ✅ Personalized Feed – View your own tweets along with others' posts <br>  
 ✅ Tweet Management – Create, Edit, and Delete tweets anytime <br>  
