@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}Tweet App{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h1 class="text-center text-primary fw-bold">Tweet App ✏️</h1>
+
+    <div class="text-center my-4">
+        <a class="btn btn-lg btn-success shadow-lg px-4 py-2" href="{% url 'tweet_create' %}">
+            ➕ Create a Tweet
+        </a>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-center gap-4">
+        {% for tweet in tweets %}
+        <div class="card shadow-lg rounded-3 overflow-hidden" style="width: 22rem; border-radius: 12px;">
+            {% if tweet.photo %}
+                <img src="{{ tweet.photo.url }}" class="card-img-top" alt="Tweet Image" style="height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;">
+            {% else %}
+                <img src="https://via.placeholder.com/350x200?text=No+Image" class="card-img-top" alt="No Image" style="height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;">
+            {% endif %}
+
+            <div class="card-body text-center">
+                <h5 class="card-title text-primary fw-bold">@{{ tweet.user.username }}</h5>
+                <p class="card-text text-muted">{{ tweet.text }}</p>
+
+                <div class="d-flex justify-content-center gap-2">
+
+                    {% if tweet.user == user  %}
+
+                    <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-outline-primary btn-sm">
+                        ✏️ Edit
+                    </a>
+                    <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-outline-danger btn-sm">
+                        🗑️ Delete
+                    </a>
+
+                    {% endif%}
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+        transition: 0.3s ease-in-out;
+    }
+</style>
+
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+
+
+
+{% block title %}
+    {% if form.instance.pk %}
+        Edit Tweet
+    {% else %}
+        Create Tweet
+    {% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="card shadow-lg p-3" style="max-width: 40rem; width: 100%; border-radius: 12px; margin: 20px;">
+        <div class="card-body p-2">
+            <h2 class="text-center fw-bold mb-2" style="font-size: 1.5rem;">
+                {% if form.instance.pk %}
+                    Edit Tweet ✏️
+                {% else %}
+                    Create Tweet 📝
+                {% endif %}
+            </h2>
+
+            <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate id="tweet-form">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="mb-2">
+                        <label class="form-label fw-semibold mb-1" style="font-size: 0.9rem;">{{ field.label }}</label>
+                        
+                        {% if field.field.widget.input_type == "file" %}
+                            <div class="d-flex align-items-center flex-wrap">
+                                <input type="file" name="{{ field.name }}" class="form-control me-2 mb-2 mb-md-0">
+                                {% if form.instance.photo %}
+                                    <a href="{{ form.instance.photo.url }}" target="_blank" class="btn btn-outline-primary btn-sm">
+                                        📂 See Previous Photo
+                                    </a>
+                                {% endif %}
+                            </div>
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                        
+                        {% if field.help_text %}
+                            <small class="form-text text-muted" style="font-size: 0.75rem;">{{ field.help_text }}</small>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                
+                <button class="btn btn-success w-100 mt-2 fw-bold py-2" type="submit">
+                    🚀 Submit
+                </button>
+            </form>
+            
+            <a href="{% url 'tweet_list' %}" class="btn btn-outline-secondary mt-2 w-100 py-2">
+                ⬅️ Back to Tweets
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .card {
+    max-width: 32rem; /* Width thodi aur kam ki */
+    width: 100%;
+    border-radius: 12px;
+    margin: 20px;
+    padding: 30px 20px; /* Height barhane ke liye padding increase ki */
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 8px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        font-size: 14px;
+        transition: 0.3s ease-in-out;
+    }
+    
+    textarea {
+        height: 100px;
+    }
+
+
+    @media (max-width: 345px) {
+    input[type="file"] {
+        font-size: 0.8rem; /* Reduce text size */
+        width: auto;
+        max-width: 100%;
+        flex-grow: 1;
+    }
+
+    .d-flex.align-items-center {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+}
+
+    
+    input:focus, textarea:focus, select:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+        outline: none;
+    }
+    
+    button:hover {
+        transform: scale(1.02);
+        transition: 0.3s ease-in-out;
+    }
+    
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+</style>
+{% endblock %}
